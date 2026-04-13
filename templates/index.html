@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dyslexia Handwriting MVP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="panel">
+        <h1>Dyslexia Handwriting Screening</h1>
+        <p class="subtitle">Upload a handwriting image to get an instant prediction.</p>
+
+        <form id="predictForm">
+          <label class="upload" for="imageInput">Choose image</label>
+          <input id="imageInput" name="image" type="file" accept="image/*" required />
+
+          <div class="preview-wrap">
+            <img id="preview" alt="Image preview" hidden />
+          </div>
+
+          <button id="submitBtn" type="submit">Predict</button>
+        </form>
+
+        <section id="result" class="result" hidden>
+          <h2 id="predictionText"></h2>
+          <p id="confidenceText"></p>
+          <p id="reviewText" class="review"></p>
+          <div class="bar-track">
+            <div id="confidenceBar" class="bar-fill"></div>
+          </div>
+        </section>
+
+        <p id="errorText" class="error"></p>
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>
